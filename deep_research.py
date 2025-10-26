@@ -38,8 +38,8 @@ def main():
     parser.add_argument(
         "-tc", "--max-tool-calls",
         type=int,
-        default=100,
-        help="Maximum number of tool calls to make (default: 100)"
+        default=500,
+        help="Maximum number of tool calls to make (default: 500)"
     )
     parser.add_argument(
         "--no-web-search",

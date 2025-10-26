@@ -103,7 +103,7 @@ options:
                         research)
   --no-background       Run research synchronously (default: background mode)
   -tc MAX_TOOL_CALLS, --max-tool-calls MAX_TOOL_CALLS
-                        Maximum number of tool calls to make (default: 100)
+                        Maximum number of tool calls to make (default: 500)
   --no-web-search       Disable web search
   --code-interpreter    Enable code interpreter for data analysis
   --interactive         Enter interactive mode for multi-line queries
@@ -145,7 +145,7 @@ uv run deep_research.py --code-interpreter "Analyze climate trends and predict f
 - Deep research can take several minutes to complete
 - Streaming mode and background mode are always enabled for real-time progress updates and reliability
 - Default model is `o4-mini-deep-research` (faster/cheaper, use `--model o3-deep-research` for complex tasks)
-- Tool calls are capped at 100 by default to control costs
+- Tool calls are capped at 500 by default to control costs
 - Research sessions are saved by default to `./research_sessions` (use `--no-save` to disable)
 - The tool will show a summary of web searches and code executions made
 - Results include inline citations to sources
