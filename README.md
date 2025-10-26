@@ -2,6 +2,36 @@
 
 A command-line tool for conducting comprehensive research using OpenAI's deep research models. Features real-time streaming progress, AI-generated folder names, and automatic session cataloging.
 
+## Live Progress Tracking
+
+The tool streams research progress in real-time with a rich UI showing:
+
+- **Progress bar** - Visual indication of completion (tool calls used / max tool calls)
+- **Elapsed time** - How long the research has been running
+- **ETA** - Estimated time remaining and completion time
+- **Live statistics** - Real-time counts of web searches, code executions, etc.
+- **Recent actions** - Last 5 research actions with timestamps
+
+Example display:
+```
+┏━━━━━━━━━━━━━ Deep Research Progress ━━━━━━━━━━━━━┓
+┃         Model: o4-mini-deep-research              ┃
+┃       Elapsed: 0:02:34                            ┃
+┃      Progress: 42.0% (42/100 calls)               ┃
+┃           ETA: 3 min (finishes ~02:32:15 PM)      ┃
+┃                                                    ┃
+┃  Web Searches: 38                                 ┃
+┃    Code Calls: 4                                  ┃
+┃                                                    ┃
+┃ Recent Actions:                                   ┃
+┃    [02:29:41 PM] Searching: quantum computing    ┃
+┃    [02:29:45 PM] Opening: nature.com/article...  ┃
+┃    [02:29:50 PM] Executing code                  ┃
+┃                                                    ┃
+┃ ████████████████████░░░░░░░░░░░░░░░░░░░ 42.0%    ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+```
+
 ## Setup
 
 1. Install uv if you haven't already:
@@ -121,36 +151,6 @@ research_sessions/
 └── mrna_vaccine_effectiveness/
     ├── mrna_vaccine_effectiveness_research.md
     └── metadata.json
-```
-
-## Live Progress Tracking
-
-The tool streams research progress in real-time with a rich UI showing:
-
-- **Progress bar** - Visual indication of completion (tool calls used / max tool calls)
-- **Elapsed time** - How long the research has been running
-- **ETA** - Estimated time remaining and completion time
-- **Live statistics** - Real-time counts of web searches, code executions, etc.
-- **Recent actions** - Last 5 research actions with timestamps
-
-Example display:
-```
-┏━━━━━━━━━━━━━ Deep Research Progress ━━━━━━━━━━━━━┓
-┃         Model: o4-mini-deep-research              ┃
-┃       Elapsed: 0:02:34                            ┃
-┃      Progress: 42.0% (42/100 calls)               ┃
-┃           ETA: 3 min (finishes ~02:32:15 PM)      ┃
-┃                                                    ┃
-┃  Web Searches: 38                                 ┃
-┃    Code Calls: 4                                  ┃
-┃                                                    ┃
-┃ Recent Actions:                                   ┃
-┃    [02:29:41 PM] Searching: quantum computing    ┃
-┃    [02:29:45 PM] Opening: nature.com/article...  ┃
-┃    [02:29:50 PM] Executing code                  ┃
-┃                                                    ┃
-┃ ████████████████████░░░░░░░░░░░░░░░░░░░ 42.0%    ┃
-┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
 ```
 
 ## Notes
