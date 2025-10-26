@@ -1,1 +1,1 @@
-For manual use, please put your research query here before running `uv run deep_research.py -m --max-tool-calls 1000`.
+For manual use, please put your research query here before running `uv run deep_research.py -m -tc 1000`.

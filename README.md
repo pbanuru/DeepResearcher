@@ -74,7 +74,7 @@ uv run deep_research.py --input-file example_query.md
 ### Manual input mode
 ```bash
 # Edit manual_input.md with your query, then run:
-uv run deep_research.py -m --max-tool-calls 1000
+uv run deep_research.py -m -tc 1000
 ```
 
 ### All options
@@ -85,7 +85,7 @@ uv run deep_research.py --help
 ```
 usage: deep_research.py [-h]
                         [--model {o3-deep-research,o4-mini-deep-research}]
-                        [--no-background] [--max-tool-calls MAX_TOOL_CALLS]
+                        [--no-background] [-tc MAX_TOOL_CALLS]
                         [--no-web-search] [--code-interpreter] [--interactive]
                         [--input-file INPUT_FILE] [-m]
                         [--output-dir OUTPUT_DIR] [--no-save]
@@ -102,7 +102,7 @@ options:
                         Model to use for research (default: o4-mini-deep-
                         research)
   --no-background       Run research synchronously (default: background mode)
-  --max-tool-calls MAX_TOOL_CALLS
+  -tc MAX_TOOL_CALLS, --max-tool-calls MAX_TOOL_CALLS
                         Maximum number of tool calls to make (default: 100)
   --no-web-search       Disable web search
   --code-interpreter    Enable code interpreter for data analysis

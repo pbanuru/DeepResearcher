@@ -36,7 +36,7 @@ def main():
         help="Run research synchronously (default: background mode)"
     )
     parser.add_argument(
-        "--max-tool-calls",
+        "-tc", "--max-tool-calls",
         type=int,
         default=100,
         help="Maximum number of tool calls to make (default: 100)"
