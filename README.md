@@ -1,5 +1,7 @@
 # Deep Researcher
 
+![Status: Working](https://img.shields.io/badge/status-working-brightgreen)
+
 A command-line tool for conducting comprehensive research using OpenAI's deep research models. Features real-time streaming progress, AI-generated folder names, and automatic session cataloging.
 
 ## Live Progress Tracking
