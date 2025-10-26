@@ -4,15 +4,6 @@ A command-line tool for conducting comprehensive research using OpenAI's deep re
 
 ## Live Progress Tracking
 
-The tool streams research progress in real-time with a rich UI showing:
-
-- **Progress bar** - Visual indication of completion (tool calls used / max tool calls)
-- **Elapsed time** - How long the research has been running
-- **ETA** - Estimated time remaining and completion time
-- **Live statistics** - Real-time counts of web searches, code executions, etc.
-- **Recent actions** - Last 5 research actions with timestamps
-
-Example display:
 ```
 ┏━━━━━━━━━━━━━ Deep Research Progress ━━━━━━━━━━━━━┓
 ┃         Model: o4-mini-deep-research              ┃
@@ -31,6 +22,25 @@ Example display:
 ┃ ████████████████████░░░░░░░░░░░░░░░░░░░ 42.0%    ┃
 ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
 ```
+
+The tool streams research progress in real-time with a rich UI showing progress bar, elapsed time, ETA, live statistics (web searches, code executions), and recent actions with timestamps.
+
+## Research Session Cataloging
+
+```
+research_sessions/
+├── quantum_computing_developments/
+│   ├── quantum_computing_developments_research.md
+│   └── metadata.json
+├── quantum_computing_developments_001/
+│   ├── quantum_computing_developments_001_research.md
+│   └── metadata.json
+└── mrna_vaccine_effectiveness/
+    ├── mrna_vaccine_effectiveness_research.md
+    └── metadata.json
+```
+
+Every research session is automatically saved with an AI-generated folder name (using GPT-5-mini), disambiguation codes if needed (`_001`, `_002`, etc.), and two files: `{folder_name}_research.md` (combined input/output with timestamp) and `metadata.json` (session info and tool usage statistics).
 
 ## Setup
 
@@ -128,29 +138,6 @@ uv run deep_research.py "Analyze the electric vehicle market in 2025. Include ma
 ### Data analysis with code
 ```bash
 uv run deep_research.py --code-interpreter "Analyze climate trends and predict future patterns"
-```
-
-## Research Session Cataloging
-
-By default, every research session is automatically saved with:
-- **Auto-generated folder name** - GPT-5-mini generates a descriptive folder name based on your query
-- **Disambiguation codes** - If a folder exists, adds `_001`, `_002`, etc.
-- **Two files per session**:
-  - `{folder_name}_research.md` - Combined input query and research output with timestamp
-  - `metadata.json` - Session info and tool usage statistics
-
-### Folder Structure Example
-```
-research_sessions/
-├── quantum_computing_developments/
-│   ├── quantum_computing_developments_research.md
-│   └── metadata.json
-├── quantum_computing_developments_001/
-│   ├── quantum_computing_developments_001_research.md
-│   └── metadata.json
-└── mrna_vaccine_effectiveness/
-    ├── mrna_vaccine_effectiveness_research.md
-    └── metadata.json
 ```
 
 ## Notes
