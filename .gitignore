@@ -1,5 +1,6 @@
 .venv
 __pycache__
 debug_logs/
+research_sessions/
 metadata.json
 last_response_debug.json
