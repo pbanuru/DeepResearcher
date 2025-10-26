@@ -1,0 +1,5 @@
+.venv
+__pycache__
+debug_logs/
+metadata.json
+last_response_debug.json
