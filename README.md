@@ -28,68 +28,53 @@ uv run deep_research.py "What are the latest developments in quantum computing?"
 
 ### Read query from markdown file
 ```bash
-uv run deep_research.py --input-file my_query.md
+uv run deep_research.py --input-file example_query.md
 ```
 
-### Interactive mode (for multi-line queries)
+### Manual input mode
 ```bash
-uv run deep_research.py --interactive
+# Edit manual_input.md with your query, then run:
+uv run deep_research.py -m --max-tool-calls 1000
 ```
 
-### Synchronous mode (background is default)
+### All options
 ```bash
-uv run deep_research.py --no-background "Quick research query"
+uv run deep_research.py --help
 ```
 
-### Enable code interpreter for data analysis
-```bash
-uv run deep_research.py --code-interpreter "Analyze trends in global temperature data"
 ```
+usage: deep_research.py [-h]
+                        [--model {o3-deep-research,o4-mini-deep-research}]
+                        [--no-background] [--max-tool-calls MAX_TOOL_CALLS]
+                        [--no-web-search] [--code-interpreter] [--interactive]
+                        [--input-file INPUT_FILE] [-m]
+                        [--output-dir OUTPUT_DIR] [--no-save]
+                        [query]
 
-### Use the more powerful model
-```bash
-uv run deep_research.py --model o3-deep-research "Complex research query"
+Conduct deep research using OpenAI's deep research models
+
+positional arguments:
+  query                 Research query to investigate
+
+options:
+  -h, --help            show this help message and exit
+  --model {o3-deep-research,o4-mini-deep-research}
+                        Model to use for research (default: o4-mini-deep-
+                        research)
+  --no-background       Run research synchronously (default: background mode)
+  --max-tool-calls MAX_TOOL_CALLS
+                        Maximum number of tool calls to make (default: 100)
+  --no-web-search       Disable web search
+  --code-interpreter    Enable code interpreter for data analysis
+  --interactive         Enter interactive mode for multi-line queries
+  --input-file INPUT_FILE
+                        Read query from a markdown file
+  -m, --manual          Read query from manual_input.md
+  --output-dir OUTPUT_DIR
+                        Directory to save research sessions (default:
+                        ./research_sessions)
+  --no-save             Don't save research session to disk
 ```
-
-### Adjust tool call limit
-```bash
-uv run deep_research.py --max-tool-calls 50 "Research topic"
-```
-
-### Disable web search (for analysis only)
-```bash
-uv run deep_research.py --no-web-search --code-interpreter "Analyze this dataset"
-```
-
-### Custom output directory
-```bash
-uv run deep_research.py --output-dir ~/my_research "Research topic"
-```
-
-### Don't save to disk
-```bash
-uv run deep_research.py --no-save "Quick lookup"
-```
-
-## Options
-
-### Input Options
-- `query` - Research query to investigate (required unless --interactive or --input-file is used)
-- `--input-file` - Read query from a markdown file
-- `--interactive` - Enter interactive mode for multi-line queries
-
-### Model Options
-- `--model` - Model to use: `o4-mini-deep-research` (default) or `o3-deep-research`
-- `--no-background` - Run research synchronously instead of background mode (default: background)
-- `--max-tool-calls` - Maximum number of tool calls to make (default: 100)
-
-### Tool Options
-- `--no-web-search` - Disable web search tool
-- `--code-interpreter` - Enable code interpreter for data analysis
-
-### Output Options
-- `--output-dir` - Directory to save research sessions (default: ./research_sessions)
-- `--no-save` - Don't save research session to disk
 
 ## Examples
 
@@ -120,25 +105,21 @@ uv run deep_research.py --code-interpreter "Analyze climate trends and predict f
 By default, every research session is automatically saved with:
 - **Auto-generated folder name** - GPT-5-mini generates a descriptive folder name based on your query
 - **Disambiguation codes** - If a folder exists, adds `_001`, `_002`, etc.
-- **Three files per session**:
-  - `input.md` - Your original query with metadata
-  - `output.md` - Research results
+- **Two files per session**:
+  - `{folder_name}_research.md` - Combined input query and research output with timestamp
   - `metadata.json` - Session info and tool usage statistics
 
 ### Folder Structure Example
 ```
 research_sessions/
 ├── quantum_computing_developments/
-│   ├── input.md
-│   ├── output.md
+│   ├── quantum_computing_developments_research.md
 │   └── metadata.json
 ├── quantum_computing_developments_001/
-│   ├── input.md
-│   ├── output.md
+│   ├── quantum_computing_developments_001_research.md
 │   └── metadata.json
 └── mrna_vaccine_effectiveness/
-    ├── input.md
-    ├── output.md
+    ├── mrna_vaccine_effectiveness_research.md
     └── metadata.json
 ```
 
@@ -175,8 +156,7 @@ Example display:
 ## Notes
 
 - Deep research can take several minutes to complete
-- Streaming mode is always enabled for real-time progress updates
-- Background mode is enabled by default for reliability
+- Streaming mode and background mode are always enabled for real-time progress updates and reliability
 - Default model is `o4-mini-deep-research` (faster/cheaper, use `--model o3-deep-research` for complex tasks)
 - Tool calls are capped at 100 by default to control costs
 - Research sessions are saved by default to `./research_sessions` (use `--no-save` to disable)
